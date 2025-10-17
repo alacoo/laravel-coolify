@@ -50,7 +50,7 @@ services:
       VITE_APP_NAME: '${APP_NAME}'
 
 
-  worker:
+
     image: 'ammezie/laravel-coolify:latest'
     command: ["php", "/var/www/html/artisan", "queue:work", "--tries=3"]
     volumes:
