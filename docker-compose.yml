@@ -48,8 +48,7 @@ services:
       MAIL_FROM_ADDRESS: '${MAIL_FROM_ADDRESS}'
       MAIL_FROM_NAME: '${MAIL_FROM_NAME}'
       VITE_APP_NAME: '${APP_NAME}'
-    depends_on:
-      - mysql
+
 
   worker:
     image: 'ammezie/laravel-coolify:latest'
@@ -99,20 +98,7 @@ services:
       MAIL_FROM_NAME: '${MAIL_FROM_NAME}'
       VITE_APP_NAME: '${APP_NAME}'
 
-  mysql:
-    image: mysql:8.0
-    cap_add:
-      - SYS_NICE
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - '3306:3306'
-    volumes:
-      - mysql-data:/var/lib/mysql
+ 
 
 volumes:
   mysql-data:
