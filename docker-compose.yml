@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   app:
-    image: 'ammezie/laravel-coolify:latest'
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - '.:/var/www/html'
     environment:
